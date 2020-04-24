@@ -1,0 +1,105 @@
+.showBorder{
+    border: 1px solid black;
+}
+.amaticFont{
+    font-family: 'Amatic SC', cursive;
+}
+.pc__bg{
+    background-color: #a3d5d1;
+    background-size: 100%;
+}
+.pc__view{
+    height: 90vh;
+    width: 75%;
+    position: relative;
+    margin: 2.25% auto;
+    background-color: white;
+    border-radius: .25rem;
+}
+.pcsb__bg{
+    background-color: rgb(246, 245, 250);
+}
+.pc__sidebar{
+    height: 90vh;
+    background-color: #333333;
+    border-radius: .25rem;
+    border-bottom-right-radius: 0rem;
+    border-top-right-radius: 0rem;
+}
+.pc__sidebarWidthCl{
+    width: 50%;
+    transition: width 3s;
+}
+.pc__sidebarWidthOp{
+    width: 100%;
+    transition: width 3s;
+}
+.menu__icon{
+    position: absolute;
+    top: 6vh;
+    left: 2vw;
+    cursor: pointer;
+    height: 5vh;
+    width: 5vw;
+}
+.line1Closed, .line2Closed, .line1Opened, .line2Opened{
+    height: 3px;
+    width: 20px;
+    border-radius: .25rem;
+    background-color: #a3d5d1;
+    position: absolute;
+}
+.line1Closed{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    position: absolute;
+    top: 13px;
+    left: 0px;
+    transition: top 2s, left, 2s;
+}
+.line1Opened{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: top 2s, left, 2s;
+}
+.line2Closed{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: top 2s, left, 2s;
+}
+.line2Opened{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    position: absolute;
+    top: 13px;
+    left: 0px;
+    transition: top 2s, left, 2s;
+}
+.pc__mainbg{
+    position: relative;
+    background-image: url(../../../assets/main-background1.jpg);
+    background-size: cover;
+    height: 90vh;
+    border-radius: .25rem
+}
+.pcsb__container, .pcm__container{
+    height: 89.8vh;
+}
