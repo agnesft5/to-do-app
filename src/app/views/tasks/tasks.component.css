@@ -30,6 +30,8 @@
     border-radius: .25rem;
     border-bottom-right-radius: 0rem;
     border-top-right-radius: 0rem;
+    position: absolute;
+    z-index: 20;
 }
 .pc__sidebarWidthCl{
     width: 50%;
@@ -108,6 +110,11 @@
 .pcsb__container, .pcm__container{
     height: 89.8vh;
 }
+.pcsb__container{
+    position: relative;
+    z-index: 20;
+}
+
 .pcsb__categories{
     position: relative;
     margin: 10% auto;
@@ -284,6 +291,7 @@
     }
     .menu__icon{
         left: 7vw;
+        z-index: 25;
     }
     .pc__mainbg{
         background-image: url(../../../assets/main-background2.jpg);
@@ -424,4 +432,86 @@
     text-align: center;
     padding: 10%;
     transition: color .5s, font 2s;
+}
+.listTitle__container{
+    margin-top: 5% !important;
+    margin-left: 5% !important;
+}
+.listTitle{
+    font-size: 1.25rem;
+    font-family: 'Catamaran', sans-serif;
+    color: #333333;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.list__containerOp{
+    background-color:rgb(255,255,255);
+    background-color:rgba(255,255,255,0.5);
+    border-radius: .25rem;
+    min-height: 30vh;
+    max-height: 50vh;
+    overflow-y: scroll;
+    width: 90%;
+    position: absolute;
+    left: 2vw;
+    margin: 0 auto !important;
+    margin-top: 2.5% !important;
+    transition: width 3s, left 3s;
+}
+.list__containerCl{
+    background-color:rgb(255,255,255);
+    background-color:rgba(255,255,255,0.5);
+    border-radius: .25rem;
+    min-height: 30vh;
+    max-height: 50vh;
+    overflow-y: scroll;
+    width: 100%;
+    margin: 0 auto !important;
+    margin-top: 2.5% !important;
+    position: absolute;
+    left:-5vw;
+    transition: width 3s, left 3s;
+}
+.toDo__container{
+    width: 90%;
+    margin: 3% auto!important;
+    background-color:rgb(255,255,255);
+    opacity: 1 !important;
+    min-height: 5vh;
+    position: relative;
+    z-index: 10;
+    border-radius: .25rem;
+    border-left: .50vw solid #a3d5d1;
+}
+.toDo{
+    color: #333333;
+    font-family: 'Catamaran', sans-serif;
+    position: absolute;
+    padding-left: 5%;
+    margin: 0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.deleteIcon{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin: 0;
+
+}
+/*SCROLL BAR*/
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
 }

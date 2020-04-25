@@ -10,8 +10,19 @@ export class TasksComponent implements OnInit {
   sideBarOpened: boolean = false;
   showCategories: boolean = false;
   showItems: boolean = false;
+  listTitle: string = "today"
 
   constructor() { }
+
+
+  changeList(selectedList: string){
+    this.listTitle = selectedList;
+    this.sideBarOpened = false;
+      this.showCategories = false;
+      setTimeout(()=>{
+        this.showItems = false;
+      }, 1750);
+  }
 
   openSideBar(){
     if(this.sideBarOpened == false){

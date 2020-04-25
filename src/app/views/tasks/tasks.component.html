@@ -36,13 +36,13 @@
                                         </div>
                                         <div class="w-100">
                                             <ul class="pcsb__categories">
-                                                <li
+                                                <li (click)="changeList('today')"
                                                     [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
                                                     today</li>
-                                                <li
+                                                <li (click)="changeList('tomorrow')"
                                                     [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
                                                     tomorrow</li>
-                                                <li
+                                                <li (click)="changeList('this week')"
                                                     [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
                                                     this week</li>
 
@@ -50,10 +50,10 @@
                                                     [ngClass]="{pcsb__separatorCl:!showCategories, pcsb__separatorOp:showCategories}">
                                                 </div>
 
-                                                <li
+                                                <li (click)="changeList('shopping list')"
                                                     [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
                                                     shopping list</li>
-                                                <li
+                                                <li (click)="changeList('work meetings')"
                                                     [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
                                                     work meetings</li>
 
@@ -76,14 +76,107 @@
                                     <div class="row m-0 p-0">
                                         <h1 class="amaticFont ml-5">empty your
                                             mind, focus on what really matters.</h1>
-                                        <div class="col-2 col-md-4">
-
-                                        </div>
-                                        <div class="col-8 col-md-4">
-
-                                        </div>
-                                        <div class="col-2 col-md-4">
-
+                                        <div class="col-12">
+                                            <div class="row p-0 m-0 listTitle__container">
+                                                <div class="col-12 p-0 m-0 text-left">
+                                                    <p *ngIf="listTitle != 'shopping list' && listTitle != 'work meetings'" class="listTitle" >{{listTitle}} &nbsp;<i class="fas fa-calendar-alt"></i></p>
+                                                    <p *ngIf="listTitle == 'shopping list'" class="listTitle" >{{listTitle}} &nbsp;<i class="fas fa-shopping-basket"></i></p>
+                                                    <p *ngIf="listTitle == 'work meetings'" class="listTitle" >{{listTitle}} &nbsp;<i class="fas fa-briefcase"></i></p>
+                                                </div>
+                                            </div>
+                                            <!--Input & button container-->
+                                            <div class="row m-0 p-0">
+                                                <div class="col-12 m-0 p-0">
+                                                    <!--New to do-->
+                                                </div>
+                                            </div>
+                                            <!--List Container-->
+                                            <div [ngClass]="{list__containerCl:!sideBarOpened, list__containerOp:sideBarOpened}" class="row m-0 p-0 list__container">
+                                                <div class="col-12 m-0 p-0">
+                                                    <!--To do-->
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--COPIES-->
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="toDo__container">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-9 m-0 p-0">
+                                                                <p class="toDo">Patata</p>
+                                                            </div>
+                                                            <div class="col-3 m-0 p-0 text-center">
+                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
