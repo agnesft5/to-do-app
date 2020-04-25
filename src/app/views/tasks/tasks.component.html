@@ -4,44 +4,91 @@
         <div class="pc__view">
             <div class="col-12 m-0 p-0">
                 <div class="row m-0 p-0">
-                    <div class="col-2 pcsb__bg m-0 p-0">
+                    <div class="col-4 col-md-2 pcsb__bg m-0 p-0">
                         <!-- Side Bar -->
-                        <div class="row pc__sidebar m-0 p-0" [ngClass]="{pc__sidebarWidthCl: !sideBarOpened, pc__sidebarWidthOp: sideBarOpened}">
+                        <div class="row pc__sidebar m-0 p-0"
+                            [ngClass]="{pc__sidebarWidthCl: !sideBarOpened, pc__sidebarWidthOp: sideBarOpened}">
                             <div class="col-12 m-0 p-0">
                                 <div class="pcsb__container">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="menu__icon" (click)="openSideBar()">
-                                                    <div [ngClass]="{line1Closed: !sideBarOpened, line1Opened: sideBarOpened}"></div>
-                                                    <div [ngClass]="{line2Closed: !sideBarOpened, line2Opened: sideBarOpened}"></div>
+                                                    <div
+                                                        [ngClass]="{line1Closed: !sideBarOpened, line1Opened: sideBarOpened}">
+                                                    </div>
+                                                    <div
+                                                        [ngClass]="{line2Closed: !sideBarOpened, line2Opened: sideBarOpened}">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div *ngIf="showItems == true">
+                                        <div class="w-100">
+                                            <div class="row pcsb__titleContainer p-0 m-0">
+                                                <div class="col-12 p-0 m-0">
+                                                    <p
+                                                        [ngClass]="{pcsb__titleCl:!showCategories, pcsb__titleOp:showCategories}">
+                                                        choose your to do list</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-100">
+                                            <ul class="pcsb__categories">
+                                                <li
+                                                    [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
+                                                    today</li>
+                                                <li
+                                                    [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
+                                                    tomorrow</li>
+                                                <li
+                                                    [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
+                                                    this week</li>
+
+                                                <div
+                                                    [ngClass]="{pcsb__separatorCl:!showCategories, pcsb__separatorOp:showCategories}">
+                                                </div>
+
+                                                <li
+                                                    [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
+                                                    shopping list</li>
+                                                <li
+                                                    [ngClass]="{pcsb__categoryCl:!showCategories, pcsb__categoryOp:showCategories}">
+                                                    work meetings</li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div *ngIf="showItems == true">
+                                        <a [ngClass]="{developerCopyrightCl:!showCategories, developerCopyrightOp:showCategories}" href="https://github.com/agnesft5">Developed by Agnès Font © </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-10 pc__mainbg m-0 p-0">
+                    <div class="col-8 col-md-10 pc__mainbg m-0 p-0">
                         <!-- Main -->
                         <div class="row m-0 p-0">
                             <div class="col-12 m-0 p-0">
                                 <div class="pcm__container">
-                                    <div class="row">
-                                        <h1 class="amaticFont ml-5">empty your mind, focus on what matters.</h1>
-                                        <div class="col-4">
+                                    <div class="row m-0 p-0">
+                                        <h1 class="amaticFont ml-5">empty your
+                                            mind, focus on what really matters.</h1>
+                                        <div class="col-2 col-md-4">
 
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-8 col-md-4">
 
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-2 col-md-4">
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <a class="pictureCopyright" href="https://unsplash.com/s/photos/anna-spratt">Picture by Anna Spratt</a>
                         </div>
                     </div>
                 </div>
