@@ -35,7 +35,7 @@
 }
 .pc__sidebarWidthCl{
     width: 50%;
-    transition: width 3s;
+    transition: width 2s;
 }
 .pc__sidebarWidthOp{
     width: 100%;
@@ -182,6 +182,228 @@
     height: 1px;
     transition: width 2s, color 2s;
 }
+.pictureCopyright{
+    position: absolute;
+    bottom: 1.5vh;
+    right: 4vw;
+    color: #333333;
+    font-size: 11px;
+    font-family: 'Catamaran', sans-serif;
+}
+.developerCopyrightCl{
+    position: absolute;
+    bottom: 4vh;
+    left: 1vw;
+    color:#333333;
+    font-size: 5px;
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+    padding: 10%;
+    transition: color 2s, font 2s;
+}
+.developerCopyrightOp{
+    position: absolute;
+    bottom: 4vh;
+    left: 1vw;
+    color:white;
+    font-size: 13px;
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+    padding: 10%;
+    transition: color .5s, font 2s;
+}
+.listTitle__container{
+    margin-top: 5% !important;
+    margin-left: 5% !important;
+}
+.listTitle{
+    font-size: 1.25rem;
+    font-family: 'Catamaran', sans-serif;
+    color: #333333;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.list__containerOp{
+    background-color:rgb(255,255,255);
+    background-color:rgba(255,255,255,0.5);
+    border-radius: .25rem;
+    min-height: 30vh;
+    max-height: 50vh;
+    overflow-y: scroll;
+    width: 90%;
+    position: absolute;
+    left: 2vw;
+    margin: 0 auto !important;
+    margin-top: 1% !important;
+    transition: width 2s, left 2s;
+}
+.list__containerCl{
+    background-color:rgb(255,255,255);
+    background-color:rgba(255,255,255,0.5);
+    border-radius: .25rem;
+    min-height: 30vh;
+    max-height: 50vh;
+    overflow-y: scroll;
+    width: 100%;
+    margin: 0 auto !important;
+    margin-top: 1% !important;
+    position: absolute;
+    left:-5vw;
+    transition: width 2s, left 2s;
+}
+.toDo__container{
+    width: 90%;
+    margin: 3% auto!important;
+    background-color:rgb(255,255,255);
+    opacity: 1 !important;
+    min-height: 5vh;
+    position: relative;
+    z-index: 10;
+    border-radius: .25rem;
+    border-left: .30vw solid #a3d5d1;
+    cursor: pointer;
+}
+.toDo__undone{
+    border-left: .30vw solid #a3d5d1;
+}
+.toDo__done{
+    border-left: .30vw solid rgb(179,157,219);
+}
+.toDo{
+    color: #333333;
+    font-family: 'Catamaran', sans-serif;
+    position: absolute;
+    padding-left: 5%;
+    margin: 0;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.toDoDate{
+    position: absolute;
+    right: -4vw;
+    bottom: -0.5vh;
+    color: #333333;
+    font-family: 'Catamaran', sans-serif;
+}
+.deleteIcon{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin: 0;
+    cursor: pointer;
+    color: #333333;
+}
+.delateIcon__done{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin: 0;
+    cursor: pointer;
+    color: #333333;
+}
+.delateIcon__done:hover{
+    color: rgb(179,157,219);
+}
+.deleteIcon:hover{
+    color: #a3d5d1;
+}
+.addToDo__containerCl{
+    width: 98%;
+    margin: 2% auto!important;
+    background-color: rgba(179,157,219, 0.6);
+    opacity: 1 !important;
+    min-height: 7vh;
+    position: relative;
+    left: -3.5vw;
+    z-index: 10;
+    border-radius: .25rem;
+    transition: width 2s, left 2s;
+}
+.addToDo__containerOp{
+    width: 90%;
+    margin: 2% auto!important;
+    background-color: rgba(179,157,219, 0.6);
+    opacity: 1 !important;
+    min-height: 7vh;
+    position: relative;
+    left: 0;
+    z-index: 10;
+    border-radius: .25rem;
+    transition: width 2s, left 2s;
+}
+.AddToDo{
+    background: none;
+    opacity: 1;
+    font-family: 'Catamaran', sans-serif;
+    position: absolute;
+    padding: 2vh .5vh;
+    margin: 0;
+    -webkit-appearance: media-slider;
+    width: 100%;
+}
+.AddToDo:focus{
+    background: none;
+    opacity: 1;
+    font-family: 'Catamaran', sans-serif;
+    position: absolute;
+    padding: 2vh .5vh;
+    margin: 0;
+    -webkit-appearance: media-slider;
+    color: white;
+    outline: none;
+    width: 100%;
+}
+.addButton{
+    border: none;
+    background: none;
+}
+.addButton:focus{
+    border: none;
+    background: none;
+    outline: none;
+}
+.addIcon{
+    color:rgb(255,255,255);
+    color:rgba(255,255,255,1);
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    margin: 0;
+    cursor: pointer;
+}
+.error{
+    position: absolute;
+    font-size: small;
+    color: #dc3545;
+    top: 1vh;
+    left: 8.65vw;
+}
+input:invalid {
+    color: white;
+  }
+/*SCROLL BAR*/
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555;
+}
+/*INPUT PLACEHOLDER*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:white;
+}
 @media screen and (max-width: 1567px){
     .pcsb__titleOp{
         padding: 25%;
@@ -277,6 +499,7 @@
     }
     .amaticFont{
         font-size: 2.15rem;
+        margin-left: 1.50% !important;
     }
     .pcsb__categories{
         margin-top: 60%;
@@ -295,6 +518,20 @@
     }
     .pc__mainbg{
         background-image: url(../../../assets/main-background2.jpg);
+    }
+    .list__containerCl{
+        width: 120%;
+        left: -15vw;
+    }
+    .addToDo__containerCl{
+        width: 128%;
+        left: -15vw;
+    }
+    .toDo__undone{
+        border-left: 1.35vw solid #a3d5d1;
+    }
+    .toDo__done{
+        border-left: 1.35vw solid rgb(179,157,219);
     }
 }
 /*iPad*/
@@ -402,116 +639,4 @@
     .pc__mainbg{
         background-image: url(../../../assets/main-background2.jpg);
     }
-}
-.pictureCopyright{
-    position: absolute;
-    bottom: 1.5vh;
-    right: 4vw;
-    color: #333333;
-    font-size: 11px;
-    font-family: 'Catamaran', sans-serif;
-}
-.developerCopyrightCl{
-    position: absolute;
-    bottom: 4vh;
-    left: 1vw;
-    color:#333333;
-    font-size: 5px;
-    font-family: 'Catamaran', sans-serif;
-    text-align: center;
-    padding: 10%;
-    transition: color 2s, font 2s;
-}
-.developerCopyrightOp{
-    position: absolute;
-    bottom: 4vh;
-    left: 1vw;
-    color:white;
-    font-size: 13px;
-    font-family: 'Catamaran', sans-serif;
-    text-align: center;
-    padding: 10%;
-    transition: color .5s, font 2s;
-}
-.listTitle__container{
-    margin-top: 5% !important;
-    margin-left: 5% !important;
-}
-.listTitle{
-    font-size: 1.25rem;
-    font-family: 'Catamaran', sans-serif;
-    color: #333333;
-    text-transform: capitalize;
-    font-weight: 700;
-}
-.list__containerOp{
-    background-color:rgb(255,255,255);
-    background-color:rgba(255,255,255,0.5);
-    border-radius: .25rem;
-    min-height: 30vh;
-    max-height: 50vh;
-    overflow-y: scroll;
-    width: 90%;
-    position: absolute;
-    left: 2vw;
-    margin: 0 auto !important;
-    margin-top: 2.5% !important;
-    transition: width 3s, left 3s;
-}
-.list__containerCl{
-    background-color:rgb(255,255,255);
-    background-color:rgba(255,255,255,0.5);
-    border-radius: .25rem;
-    min-height: 30vh;
-    max-height: 50vh;
-    overflow-y: scroll;
-    width: 100%;
-    margin: 0 auto !important;
-    margin-top: 2.5% !important;
-    position: absolute;
-    left:-5vw;
-    transition: width 3s, left 3s;
-}
-.toDo__container{
-    width: 90%;
-    margin: 3% auto!important;
-    background-color:rgb(255,255,255);
-    opacity: 1 !important;
-    min-height: 5vh;
-    position: relative;
-    z-index: 10;
-    border-radius: .25rem;
-    border-left: .50vw solid #a3d5d1;
-}
-.toDo{
-    color: #333333;
-    font-family: 'Catamaran', sans-serif;
-    position: absolute;
-    padding-left: 5%;
-    margin: 0;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-}
-.deleteIcon{
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    margin: 0;
-
-}
-/*SCROLL BAR*/
-/* width */
-::-webkit-scrollbar {
-width: 10px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-background: #f1f1f1;
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-background: #888;
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-background: #555;
 }

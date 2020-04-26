@@ -62,7 +62,8 @@
 
                                     </div>
                                     <div *ngIf="showItems == true">
-                                        <a [ngClass]="{developerCopyrightCl:!showCategories, developerCopyrightOp:showCategories}" href="https://github.com/agnesft5">Developed by Agnès Font © </a>
+                                        <a [ngClass]="{developerCopyrightCl:!showCategories, developerCopyrightOp:showCategories}"
+                                            href="https://github.com/agnesft5">Developed by Agnès Font © </a>
                                     </div>
                                 </div>
                             </div>
@@ -79,99 +80,71 @@
                                         <div class="col-12">
                                             <div class="row p-0 m-0 listTitle__container">
                                                 <div class="col-12 p-0 m-0 text-left">
-                                                    <p *ngIf="listTitle != 'shopping list' && listTitle != 'work meetings'" class="listTitle" >{{listTitle}} &nbsp;<i class="fas fa-calendar-alt"></i></p>
-                                                    <p *ngIf="listTitle == 'shopping list'" class="listTitle" >{{listTitle}} &nbsp;<i class="fas fa-shopping-basket"></i></p>
-                                                    <p *ngIf="listTitle == 'work meetings'" class="listTitle" >{{listTitle}} &nbsp;<i class="fas fa-briefcase"></i></p>
+                                                    <p *ngIf="listTitle != 'shopping list' && listTitle != 'work meetings'"
+                                                        class="listTitle">{{listTitle}} &nbsp;<i
+                                                            class="fas fa-calendar-alt"></i></p>
+                                                    <p *ngIf="listTitle == 'shopping list'" class="listTitle">
+                                                        {{listTitle}} &nbsp;<i class="fas fa-shopping-basket"></i></p>
+                                                    <p *ngIf="listTitle == 'work meetings'" class="listTitle">
+                                                        {{listTitle}} &nbsp;<i class="fas fa-briefcase"></i></p>
                                                 </div>
                                             </div>
                                             <!--Input & button container-->
                                             <div class="row m-0 p-0">
                                                 <div class="col-12 m-0 p-0">
                                                     <!--New to do-->
+                                                    <div
+                                                        [ngClass]="{addToDo__containerCl:!sideBarOpened, addToDo__containerOp:sideBarOpened}">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-2 m-0 p-0 text-center">
+                                                                <button
+                                                                    [disabled]="newTask.invalid && newTask.touched && newTask.dirty || newTask.touched && newTask.pristine"
+                                                                    (click)="addTask(); newTask.reset()" type="submit"
+                                                                    class="addButton"><i class="fas fa-plus addIcon"
+                                                                        style="font-size: 1.5rem;"></i></button>
+                                                            </div>
+                                                            <div class="col-10 m-0 p-0">
+                                                                <input type="text" #newTask="ngModel" [(ngModel)]="task"
+                                                                    name="task" class="AddToDo" required
+                                                                    pattern="[A-zÀ-ú]*"
+                                                                    placeholder="Write down your new to-do!" required
+                                                                    pattern="([\w ]+)">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-12 m-0 p-0">
+                                                                <p class="error"
+                                                                    *ngIf="newTask.invalid && newTask.touched && newTask.dirty">
+                                                                    Invalid format*</p>
+                                                                <p class="error"
+                                                                    *ngIf="newTask.touched && newTask.pristine">
+                                                                    This field is mandatory*</p>
+                                                                <p class="error" *ngIf="advice">
+                                                                    {{advice}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!--List Container-->
-                                            <div [ngClass]="{list__containerCl:!sideBarOpened, list__containerOp:sideBarOpened}" class="row m-0 p-0 list__container">
-                                                <div class="col-12 m-0 p-0">
-                                                    <!--To do-->
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!--COPIES-->
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="toDo__container">
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-9 m-0 p-0">
-                                                                <p class="toDo">Patata</p>
-                                                            </div>
-                                                            <div class="col-3 m-0 p-0 text-center">
-                                                                <p class="deleteIcon"><i class="fas fa-trash-alt"></i></p>
+                                            <div *ngIf="selectedList">
+                                                <div [ngClass]="{list__containerCl:!sideBarOpened, list__containerOp:sideBarOpened}"
+                                                    class="row m-0 p-0">
+                                                    <div class="col-12 m-0 p-0">
+                                                        <!--To do-->
+                                                        <div class="toDo__container"
+                                                            [ngClass]="{toDo__undone: selected['done']==false, toDo__done: selected['done']==true}"
+                                                            *ngFor="let selected of selectedList, let i= index">
+                                                            <div class="row m-0 p-0">
+                                                                <div class="col-9 m-0 p-0">
+                                                                    <p (click)="taskDone(i)" class="toDo">{{selected['name']}}</p>
+                                                                    <small *ngIf="!sideBarOpened" class="toDoDate">{{selected['date']}}</small>
+                                                                </div>
+                                                                <div class="col-3 m-0 p-0 text-center">
+                                                                    <p (click)="deleteTask(i)" [ngClass]="{deleteIcon: selected['done']==false, delateIcon__done: selected['done']==true}"><i
+                                                                            class="fas fa-trash-alt"></i>
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -181,7 +154,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="pictureCopyright" href="https://unsplash.com/s/photos/anna-spratt">Picture by Anna Spratt</a>
+                            <a class="pictureCopyright" href="https://unsplash.com/s/photos/anna-spratt">Picture by Anna
+                                Spratt</a>
                         </div>
                     </div>
                 </div>
