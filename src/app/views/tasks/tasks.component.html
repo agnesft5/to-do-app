@@ -94,25 +94,53 @@
                                                 <div class="col-12 m-0 p-0">
                                                     <!--New to do-->
                                                     <div
-                                                        [ngClass]="{addToDo__containerCl:!sideBarOpened, addToDo__containerOp:sideBarOpened}">
+                                                        [ngClass]="{addToDo__containerCl:!sideBarOpened, addToDo__containerOp:sideBarOpened, dateHeight: listTitle != 'today' && listTitle != 'shopping list'}">
                                                         <div class="row m-0 p-0">
-                                                            <div class="col-2 m-0 p-0 text-center">
+                                                            <div class="col-2 m-0 p-0 text-center" style="position: relative;
+                                                            display: flex;
+                                                            align-items: center;
+                                                            justify-content: center;">
                                                                 <button
                                                                     [disabled]="newTask.invalid && newTask.touched && newTask.dirty || newTask.touched && newTask.pristine"
-                                                                    (click)="addTask(); newTask.reset()" type="submit"
+                                                                    (click)="addTask(); newTask.reset();" type="submit"
                                                                     class="addButton"><i class="fas fa-plus addIcon"
                                                                         style="font-size: 1.5rem;"></i></button>
                                                             </div>
                                                             <div class="col-10 m-0 p-0">
+                                                                <!--Task-->
                                                                 <input type="text" #newTask="ngModel" [(ngModel)]="task"
-                                                                    name="task" class="AddToDo" required
-                                                                    pattern="[A-zÀ-ú]*"
-                                                                    placeholder="Write down your new to-do!" required
+                                                                    name="task" class="AddToDo"
+                                                                    [ngClass]="{datePadding: listTitle != 'today' && listTitle != 'shopping list'}"
+                                                                    placeholder="Add new task!" required
                                                                     pattern="([\w ]+)">
+                                                                <div *ngIf="listTitle != 'today' && listTitle != 'shopping list'"
+                                                                    class="row m-0 p-0 dateInput__container">
+                                                                    <div class="col-4 m-0 p-0">
+                                                                        <!--Day-->
+                                                                        <input type="number" #newDateDay="ngModel"
+                                                                            [(ngModel)]="deadlineDay" name="deadlineDay"
+                                                                            class="AddToDoDate" placeholder="Day"
+                                                                            required>
+                                                                    </div>
+                                                                    <div class="col-4 m-0 p-0">
+                                                                        <!--Month-->
+                                                                        <input type="number" #newDateMonth="ngModel"
+                                                                            [(ngModel)]="deadlineMonth"
+                                                                            name="deadlineMonth" class="AddToDoDate"
+                                                                            placeholder="Month" required>
+                                                                    </div>
+                                                                    <div class="col-4 m-0 p-0">
+                                                                        <!--Year-->
+                                                                        <input type="number" #newDateYear="ngModel"
+                                                                            [(ngModel)]="deadlineYear"
+                                                                            name="deadlineYear" class="AddToDoDate"
+                                                                            placeholder="Year" required>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row m-0 p-0">
-                                                            <div class="col-12 m-0 p-0">
+                                                        <div class="row m-0 p-0 errorMessage">
+                                                            <div class="col-12 m-0 p-0 text-center">
                                                                 <p class="error"
                                                                     *ngIf="newTask.invalid && newTask.touched && newTask.dirty">
                                                                     Invalid format*</p>
@@ -132,18 +160,70 @@
                                                     class="row m-0 p-0">
                                                     <div class="col-12 m-0 p-0">
                                                         <!--To do-->
-                                                        <div class="toDo__container"
-                                                            [ngClass]="{toDo__undone: selected['done']==false, toDo__done: selected['done']==true}"
-                                                            *ngFor="let selected of selectedList, let i= index">
-                                                            <div class="row m-0 p-0">
-                                                                <div class="col-9 m-0 p-0">
-                                                                    <p (click)="taskDone(i)" class="toDo">{{selected['name']}}</p>
-                                                                    <small *ngIf="!sideBarOpened" class="toDoDate">{{selected['date']}}</small>
+                                                        <div *ngIf="listTitle != 'shopping list'">
+                                                            <div class="toDo__container"
+                                                                [ngClass]="{toDo__undone: selected['done']==false, toDo__done: selected['done']==true}"
+                                                                *ngFor="let selected of selectedList, let i= index">
+                                                                <div class="row m-0 p-0">
+                                                                    <div class="col-9 m-0 p-0" style="padding: 1.5% !important;
+                                                                    padding-left: 3% !important;">
+                                                                        <p (click)="taskDone(i)" class="toDo">
+                                                                            {{selected['name']}}<span
+                                                                                *ngIf="selected['onDate']">&nbsp;&nbsp;on&nbsp;&nbsp;<span
+                                                                                    [ngClass]="{toDoDate__undone:selected['done']==false ,toDoDate__done:selected['done']==true}">{{selected['onDate']}}</span></span>
+                                                                        </p>
+                                                                        <div class="row m-0 p-0 float-right toDoDate">
+                                                                            <div class="col-12 m-0 p-0">
+                                                                                <small
+                                                                                    *ngIf="!sideBarOpened">{{selected['date']}}</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-3 m-0 p-0 text-center" style="display: flex !important;
+                                                                align-items: center !important;
+                                                                justify-content: center !important;">
+                                                                        <p (click)="deleteTask(i)"
+                                                                            [ngClass]="{deleteIcon: selected['done']==false, delateIcon__done: selected['done']==true}">
+                                                                            <i class="fas fa-trash-alt"></i>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col-3 m-0 p-0 text-center">
-                                                                    <p (click)="deleteTask(i)" [ngClass]="{deleteIcon: selected['done']==false, delateIcon__done: selected['done']==true}"><i
-                                                                            class="fas fa-trash-alt"></i>
-                                                                    </p>
+                                                            </div>
+                                                        </div>
+                                                        <!--Shopping list-->
+                                                        <div *ngIf="listTitle == 'shopping list'">
+                                                            <div class="toDo__container"
+                                                                *ngFor="let selected of selectedList, let i= index">
+                                                                <div class="row m-0 p-0">
+                                                                    <div class="col-2 m-0 p-0" style="position: relative;
+                                                                    display: flex;
+                                                                    align-items: center;
+                                                                    justify-content: center;">
+                                                                        <p (click)="taskDone(i)" class="m-0 p-0"
+                                                                            [ngClass]="{nonBought: selected['done']==false, bought: selected['done']==true}">
+                                                                            <i class="fas fa-circle"></i>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-7 m-0 p-0" style="padding: 1.5% !important;
+                                                                    padding-left: 3% !important;">
+                                                                        <p class="toDo">
+                                                                            {{selected['name']}}
+                                                                        </p>
+                                                                        <!-- <div class="row m-0 p-0 float-right toDoDate">
+                                                                            <div class="col-12 m-0 p-0">
+                                                                                <small
+                                                                                    *ngIf="!sideBarOpened">{{selected['date']}}</small>
+                                                                            </div>
+                                                                        </div> -->
+                                                                    </div>
+                                                                    <div class="col-3 m-0 p-0 text-center" style="display: flex !important;
+                                                                align-items: center !important;
+                                                                justify-content: center !important;">
+                                                                        <p (click)="deleteTask(i)"
+                                                                            [ngClass]="{deleteIcon: selected['done']==false, delateIcon__done: selected['done']==true}">
+                                                                            <i class="fas fa-trash-alt"></i>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

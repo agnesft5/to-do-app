@@ -9,9 +9,12 @@ export class TasksComponent implements OnInit {
   sideBarOpened: boolean = false;
   showCategories: boolean = false;
   showItems: boolean = false;
-  listTitle: string = "today"
+  listTitle: string = "shopping list"
   task: string;
   date: any;
+  deadlineDay: number;
+  deadlineMonth: number;
+  deadlineYear: number;
   todayList: object[] = [];
   tomorrowList: object[] = [];
   weekList: object[] = [];
@@ -19,39 +22,44 @@ export class TasksComponent implements OnInit {
   workList: object[] = [];
   advice: string;
   selectedList: object[];
+
+  // newDateDay.reset(); newDateMonth.reset(); newDateYear.reset()
+
   constructor() { }
-  deleteTask(index){
+
+
+  deleteTask(index) {
     //Today
     if (this.listTitle == "today") {
-      this.todayList.splice(index,1);
+      this.todayList.splice(index, 1);
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem("today", JSON.stringify(this.todayList));
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
       }
-    //Tomorrow
-    }else if (this.listTitle == "tomorrow") {
-      this.tomorrowList.splice(index,1);
+      //Tomorrow
+    } else if (this.listTitle == "tomorrow") {
+      this.tomorrowList.splice(index, 1);
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem("tomorrow", JSON.stringify(this.tomorrowList));
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
       }
-    //Week
-    }else if (this.listTitle == "this week") {
-      this.weekList.splice(index,1);
+      //Week
+    } else if (this.listTitle == "this week") {
+      this.weekList.splice(index, 1);
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem("this week", JSON.stringify(this.weekList));
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
       }
-    //Shopping
-    }else if (this.listTitle == "shopping list") {
-      this.shoppingList.splice(index,1);
+      //Shopping
+    } else if (this.listTitle == "shopping list") {
+      this.shoppingList.splice(index, 1);
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem("shopping list", JSON.stringify(this.shoppingList));
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
       }
-    //Work
-    }else if (this.listTitle == "work meetings") {
-      this.workList.splice(index,1);
+      //Work
+    } else if (this.listTitle == "work meetings") {
+      this.workList.splice(index, 1);
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem("work meetings", JSON.stringify(this.workList));
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
@@ -67,67 +75,67 @@ export class TasksComponent implements OnInit {
           localStorage.setItem("today", JSON.stringify(this.todayList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
-      }else{
+      } else {
         this.todayList[index]['done'] = false;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("today", JSON.stringify(this.todayList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
       }
-    //Tomorrow
-    }else if (this.listTitle == "tomorrow") {
+      //Tomorrow
+    } else if (this.listTitle == "tomorrow") {
       if (this.tomorrowList[index]['done'] == false) {
         this.tomorrowList[index]['done'] = true;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("tomorrow", JSON.stringify(this.tomorrowList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
-      }else{
+      } else {
         this.tomorrowList[index]['done'] = false;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("tomorrow", JSON.stringify(this.tomorrowList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
       }
-    //This week
-    }else if (this.listTitle == "this week") {
+      //This week
+    } else if (this.listTitle == "this week") {
       if (this.weekList[index]['done'] == false) {
         this.weekList[index]['done'] = true;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("this week", JSON.stringify(this.weekList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
-      }else{
+      } else {
         this.weekList[index]['done'] = false;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("this week", JSON.stringify(this.weekList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
       }
-    //Shopping list
-    }else if (this.listTitle == "shopping list") {
+      //Shopping list
+    } else if (this.listTitle == "shopping list") {
       if (this.shoppingList[index]['done'] == false) {
         this.shoppingList[index]['done'] = true;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("shopping list", JSON.stringify(this.shoppingList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
-      }else{
+      } else {
         this.shoppingList[index]['done'] = false;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("shopping list", JSON.stringify(this.shoppingList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
       }
-    //Work meetings
-    }else if (this.listTitle == "work meetings") {
+      //Work meetings
+    } else if (this.listTitle == "work meetings") {
       if (this.workList[index]['done'] == false) {
         this.workList[index]['done'] = true;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("work meetings", JSON.stringify(this.workList));
           this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         }
-      }else{
+      } else {
         this.workList[index]['done'] = false;
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("work meetings", JSON.stringify(this.workList));
@@ -140,6 +148,19 @@ export class TasksComponent implements OnInit {
     if (this.task != null || this.task != undefined) {
       this.advice = undefined;
       this.date = new Date();
+      let deadlineDate;
+      if (this.deadlineYear != null && this.deadlineYear != undefined && this.deadlineMonth != null && this.deadlineMonth != undefined && this.deadlineDay != null && this.deadlineDay != undefined) {
+        let deadline = new Date(this.deadlineYear, this.deadlineMonth, this.deadlineDay);
+        deadlineDate = deadline.toDateString();
+        this.deadlineDay = undefined;
+        this.deadlineMonth = undefined;
+        this.deadlineYear = undefined;
+      }else{
+        deadlineDate = undefined;
+        this.deadlineDay = undefined;
+        this.deadlineMonth = undefined;
+        this.deadlineYear = undefined;
+      }
       if (this.listTitle == "today") {
         this.todayList.push({ name: this.task, date: this.date.toDateString(), done: false })
         console.log(this.todayList, 'today')
@@ -149,14 +170,14 @@ export class TasksComponent implements OnInit {
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
         console.log(this.selectedList)
       } else if (this.listTitle == "tomorrow") {
-        this.tomorrowList.push({ name: this.task, date: this.date.toDateString(), done: false })
+        this.tomorrowList.push({ name: this.task, date: this.date.toDateString(), done: false, onDate: deadlineDate })
         console.log(this.tomorrowList, 'tomorrow')
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("tomorrow", JSON.stringify(this.tomorrowList))
         }
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
       } else if (this.listTitle == "this week") {
-        this.weekList.push({ name: this.task, date: this.date.toDateString(), done: false })
+        this.weekList.push({ name: this.task, date: this.date.toDateString(), done: false, onDate: deadlineDate })
         console.log(this.weekList, 'week')
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("this week", JSON.stringify(this.weekList))
@@ -170,7 +191,7 @@ export class TasksComponent implements OnInit {
         }
         this.selectedList = JSON.parse(localStorage.getItem(this.listTitle));
       } else if (this.listTitle == "work meetings") {
-        this.workList.push({ name: this.task, date: this.date.toDateString(), done: false })
+        this.workList.push({ name: this.task, date: this.date.toDateString(), done: false, onDate: deadlineDate })
         console.log(this.workList, 'work')
         if (typeof (Storage) !== 'undefined') {
           localStorage.setItem("work meetings", JSON.stringify(this.workList))
