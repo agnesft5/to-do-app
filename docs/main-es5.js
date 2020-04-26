@@ -886,7 +886,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.sideBarOpened = false;
         this.showCategories = false;
         this.showItems = false;
-        this.listTitle = "shopping list";
+        this.listTitle = "today";
         this.todayList = [];
         this.tomorrowList = [];
         this.weekList = [];

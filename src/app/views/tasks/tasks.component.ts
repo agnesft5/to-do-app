@@ -9,7 +9,7 @@ export class TasksComponent implements OnInit {
   sideBarOpened: boolean = false;
   showCategories: boolean = false;
   showItems: boolean = false;
-  listTitle: string = "shopping list"
+  listTitle: string = "today"
   task: string;
   date: any;
   deadlineDay: number;
