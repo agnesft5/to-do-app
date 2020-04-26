@@ -793,6 +793,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
 
     var routerConfig = [{
       "path": "tasks",
@@ -813,7 +819,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _views_tasks_tasks_component__WEBPACK_IMPORTED_MODULE_4__["TasksComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routerConfig, {
         useHash: true
-      })],
+      }), _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"]],
       providers: [],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
     })], AppModule);
