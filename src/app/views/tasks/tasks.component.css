@@ -337,6 +337,7 @@
     padding: 2vh .5vh;
     margin: 0;
     -webkit-appearance: media-slider;
+    border: none;
     width: 100%;
 }
 .AddToDo:focus{
@@ -348,6 +349,7 @@
     margin: 0;
     -webkit-appearance: media-slider;
     color: white;
+    border: none;
     outline: none;
     width: 100%;
 }
