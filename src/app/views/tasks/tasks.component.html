@@ -243,3 +243,21 @@
         </div>
     </div>
 </div>
+<div *ngIf="agree == true" class="cookies__container">
+    <div class="row m-0 p-0">
+        <div class="col-11 m-0 p-0 x__col"></div>
+        <div class="col-1 m-0 p-0 x__col">
+            <i class="fas fa-times x__icon" (click)="closeCookies()"></i>
+        </div>
+    </div>
+    <div class="row m-0 p-0">
+        <div class="col-12 m-0 p-0 cookies__col">
+            <p class="cookies__text">This site uses cookies to give you the best possible experience. By continuing to use this site you agree that we can save them in your device.</p>
+        </div>
+    </div>
+    <div class="row m-0 p-0">
+        <div class="col-12 m-0 p-0 button__col">
+            <button (click)="closeCookies()" type="button" class="accept__button">Accept</button>
+        </div>
+    </div>
+</div>

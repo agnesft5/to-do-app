@@ -710,3 +710,86 @@ input[type=number] {
         background-image: url(../../../assets/main-background2.jpg);
     }
 }
+.cookies__container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 15vh;
+    background-color: #444;
+    width: 100%;
+    z-index: 30;
+}
+.cookies__col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    text-align: center;
+}
+.cookies__text{
+    color:white;
+    font-family: 'Catamaran', sans-serif;
+    display: contents;
+    vertical-align: middle;
+}
+.x__col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+}
+.button__col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+}
+.x__icon{
+    color: white;
+    vertical-align: middle;
+    margin-top: 20%;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.x__icon:hover, .x__icon:focus{
+    color: #a3d5d1;
+    vertical-align: middle;
+    margin-top: 20%;
+    cursor: pointer;
+}
+.accept__button{
+    color:white;
+    font-family: 'Catamaran', sans-serif;
+    outline: none;
+    border: 1px solid white;
+    border-radius: .25rem;
+    background-color: #444;
+    cursor: pointer;
+}
+.accept__button:hover, .accept__button:focus{
+    color: #a3d5d1;
+    font-family: 'Catamaran', sans-serif;
+    outline: none;
+    border: 1px solid #a3d5d1;
+    border-radius: .25rem;
+    background-color: #444;
+    cursor: pointer;
+}
+@media screen and (max-width: 575px){
+    .accept__button, .cookies__text{
+        font-size: .7rem;
+    }
+    .accept__button{
+        z-index: 35;
+    }
+    .cookies__text{
+        display: block;
+        padding: 13% !important;
+        margin-top: 3.5%;
+        margin-bottom: 5.5%;
+    }
+    .x__icon{
+        font-size: 1rem;
+        z-index: 35;
+    }
+}

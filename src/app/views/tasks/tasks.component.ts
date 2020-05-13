@@ -22,6 +22,7 @@ export class TasksComponent implements OnInit {
   workList: object[] = [];
   advice: string;
   selectedList: object[];
+  agree: boolean = false;
 
   // newDateDay.reset(); newDateMonth.reset(); newDateYear.reset()
 
@@ -150,7 +151,7 @@ export class TasksComponent implements OnInit {
       this.date = new Date();
       let deadlineDate;
       if (this.deadlineYear != null && this.deadlineYear != undefined && this.deadlineMonth != null && this.deadlineMonth != undefined && this.deadlineDay != null && this.deadlineDay != undefined) {
-        let deadline = new Date(this.deadlineYear, this.deadlineMonth, this.deadlineDay);
+        let deadline = new Date(this.deadlineYear, this.deadlineMonth-1, this.deadlineDay);
         deadlineDate = deadline.toDateString();
         this.deadlineDay = undefined;
         this.deadlineMonth = undefined;
@@ -232,7 +233,14 @@ export class TasksComponent implements OnInit {
       }, 1750)
     }
   }
+
+
+  closeCookies(){
+    this.agree = false;
+  }
+  
   ngOnInit() {
+    this.agree = true;
     this.todayList = JSON.parse(localStorage.getItem('today'));
     if (this.todayList == undefined || this.todayList == null) {
       this.todayList = []
